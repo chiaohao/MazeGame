@@ -54,8 +54,8 @@ public class systemController : MonoBehaviour {
 			player.translateSpeed = translateSpeed / 1.5f;
 			speedupTimeText.gameObject.SetActive (false);
 		}
-		speedupTimeText.text = ((int)speedupTime / 60).ToString () + ":" + ((int)speedupTime % 60).ToString () + ":" + ((int)(speedupTime * 100) % 100).ToString ();
-		gameTimeText.text = ((int)gameTime / 60).ToString () + ":" + ((int)gameTime % 60).ToString () + ":" + ((int)(gameTime * 100) % 100).ToString ();
+		speedupTimeText.text = ((int)speedupTime / 60).ToString ("00") + ":" + ((int)speedupTime % 60).ToString ("00") + ":" + ((int)(speedupTime * 100) % 100).ToString ("00");
+		gameTimeText.text = ((int)gameTime / 60).ToString ("00") + ":" + ((int)gameTime % 60).ToString ("00") + ":" + ((int)(gameTime * 100) % 100).ToString ("00");
 		gameTimeText.color = gameTime > 20f ? new Color (50f / 255f, 50f / 255f, 50f / 255f) : new Color (1, 50f / 255f, 50f / 255f);
 
 
@@ -108,7 +108,7 @@ public class systemController : MonoBehaviour {
 			}
 			winPanel.SetActive (true);
 			float b = PlayerPrefs.GetFloat ("best", gameTime);
-			bestRecord.text = "Best Record : " + ((int)b / 60).ToString () + ":" + ((int)b % 60).ToString () + ":" + ((int)(b * 100) % 100).ToString ();
+			bestRecord.text = "Best Record : " + ((int)b / 60).ToString ("00") + ":" + ((int)b % 60).ToString ("00") + ":" + ((int)(b * 100) % 100).ToString ("00");
 			break;
 		case GameState.lose:
 			player.isMovable = false;
